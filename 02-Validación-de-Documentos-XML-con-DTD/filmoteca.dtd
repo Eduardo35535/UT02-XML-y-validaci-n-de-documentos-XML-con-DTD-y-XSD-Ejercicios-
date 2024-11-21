@@ -1,0 +1,29 @@
+<!-- DTD para validar el documento filmoteca.xml -->
+
+<!ELEMENT filmoteca (pelicula+)>
+
+<!-- La filmoteca puede contener una o más películas (por eso usamos "+" para indicar "uno o más") -->
+
+<!ELEMENT pelicula (titulo, director, año, duracion, genero, calificacion)>
+<!-- Cada película debe tener un título, director, año, duración, género y calificación. Todos son obligatorios. -->
+
+<!ELEMENT titulo (#PCDATA)>
+<!-- El título de la película es un texto (PCDATA) que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT director (#PCDATA)>
+<!-- El director de la película es un texto (PCDATA), representado por cualquier cadena de caracteres. -->
+
+<!ELEMENT año (#PCDATA)>
+<!-- El año de lanzamiento es un texto (PCDATA) que representa un año como una cadena de caracteres. -->
+
+<!ELEMENT duracion (#PCDATA)>
+<!-- La duración es un texto (PCDATA), representando un número que indica la duración de la película en minutos. -->
+
+<!ELEMENT genero (#PCDATA)>
+<!-- El género de la película es un texto (PCDATA), que puede ser cualquier género cinematográfico. -->
+
+<!ELEMENT calificacion (#PCDATA)>
+<!-- La calificación es un texto (PCDATA) que representa la clasificación de la película (G, PG, PG-13, R). -->
+
+<!ATTLIST duracion unidad CDATA #IMPLIED>
+<!-- El atributo "unidad" para la duración es opcional (#IMPLIED), en caso de ser necesario se puede especificar (por ejemplo, "minutos"). -->

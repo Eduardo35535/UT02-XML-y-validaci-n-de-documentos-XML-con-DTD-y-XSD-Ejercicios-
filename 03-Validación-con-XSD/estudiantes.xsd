@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Definición del esquema para validar el fichero estudiantes.xml -->
+    
+    <xs:element name="estudiantes">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- El número de estudiantes es de 0 a 10 -->
+                <xs:element name="estudiante" maxOccurs="10" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Nombre: texto de hasta 30 caracteres -->
+                            <xs:element name="nombre" type="xs:string" maxLength="30"/>
+                            
+                            <!-- Apellidos: texto de hasta 50 caracteres -->
+                            <xs:element name="apellidos" type="xs:string" maxLength="50"/>
+                            
+                            <!-- Matrícula: número de 7 dígitos -->
+                            <xs:element name="matricula" type="xs:string" pattern="\d{7}"/>
+                            
+                            <!-- Fecha de inscripción: fecha con rango entre 2000-01-01 y 2023-12-31 -->
+                            <xs:element name="fecha_inscripcion" type="xs:date">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:date">
+                                        <xs:minInclusive value="2000-01-01"/>
+                                        <xs:maxInclusive value="2023-12-31"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            
+                            <!-- Correo electrónico: formato email -->
+                            <xs:element name="correo" type="xs:string" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+                            
+                            <!-- Teléfonos: de 1 a 3 números de teléfono de 10 dígitos cada uno -->
+                            <xs:element name="telefono1" type="xs:string" minLength="10" maxLength="10"/>
+                            <xs:element name="telefono2" type="xs:string" minLength="10" maxLength="10" minOccurs="0"/>
+                            <xs:element name="telefono3" type="xs:string" minLength="10" maxLength="10" minOccurs="0"/>
+                            
+                            <!-- Dirección: vía, nombre de vía, código postal -->
+                            <xs:element name="direccion">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <!-- Vía: solo puede ser "calle" o "avenida" -->
+                                        <xs:element name="via">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="calle"/>
+                                                    <xs:enumeration value="avenida"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        
+                                        <!-- Nombre de la vía: hasta 100 caracteres -->
+                                        <xs:element name="nombre_via" type="xs:string" maxLength="100"/>
+                                        
+                                        <!-- Código Postal: exactamente 5 dígitos -->
+                                        <xs:element name="codigo_postal" type="xs:string" pattern="\d{5}"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

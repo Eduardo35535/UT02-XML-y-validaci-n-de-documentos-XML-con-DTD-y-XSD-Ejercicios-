@@ -1,0 +1,36 @@
+<!-- DTD para validar el documento personas.xml -->
+
+<!ELEMENT personas (persona+)>
+
+<!-- El elemento "personas" puede contener uno o más elementos "persona" (por eso usamos "+" para indicar "uno o más"). -->
+
+<!ELEMENT persona (nombre, apellidos, telefono, email, direccion)>
+
+<!-- Cada persona debe tener los elementos: nombre, apellidos, telefono, email y direccion. Estos son obligatorios. -->
+
+<!ELEMENT nombre (#PCDATA)>
+<!-- El nombre de la persona es un texto (PCDATA), que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT apellidos (#PCDATA)>
+<!-- Los apellidos de la persona es un texto (PCDATA), que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT telefono (#PCDATA)>
+<!-- El teléfono de la persona es un texto (PCDATA), que debe ser un número o cadena de dígitos. -->
+
+<!ELEMENT email (#PCDATA)>
+<!-- El email de la persona es un texto (PCDATA), que representa una dirección de correo electrónico. -->
+
+<!ELEMENT direccion (tipo_via, nombre_via, numero)>
+<!-- La dirección contiene tres elementos: tipo de vía, nombre de la vía y número. Todos son obligatorios. -->
+
+<!ELEMENT tipo_via (#PCDATA)>
+<!-- El tipo de vía es un texto (PCDATA) que describe si es "Calle", "Avenida", "Plaza", etc. -->
+
+<!ELEMENT nombre_via (#PCDATA)>
+<!-- El nombre de la vía es un texto (PCDATA) que representa el nombre de la calle o avenida. -->
+
+<!ELEMENT numero (#PCDATA)>
+<!-- El número es un texto (PCDATA) que representa el número de la dirección. -->
+
+<!ATTLIST persona id ID #REQUIRED>
+<!-- El atributo "id" es obligatorio (#REQUIRED) y se utiliza para dar un identificador único a cada persona. -->

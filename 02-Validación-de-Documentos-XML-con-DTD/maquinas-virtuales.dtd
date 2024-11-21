@@ -1,0 +1,39 @@
+<!-- DTD para validar el documento maquinas-virtuales.xml -->
+
+<!ELEMENT maquinas-virtuales (maquina-virtual+)>
+
+<!-- El elemento "maquinas-virtuales" puede contener una o más máquinas virtuales (por eso usamos "+" para indicar "uno o más"). -->
+
+<!ELEMENT maquina-virtual (nombre, cpu, ram, disco, adaptador-red)>
+
+<!-- Cada máquina virtual debe tener los elementos: nombre, cpu, ram, disco y adaptador-red. Estos son obligatorios. -->
+
+<!ELEMENT nombre (#PCDATA)>
+<!-- El nombre de la máquina virtual es un texto (PCDATA), que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT cpu (#PCDATA)>
+<!-- El número de núcleos de la CPU es un texto (PCDATA), representado por un número que indica los núcleos asignados. -->
+
+<!ELEMENT ram (#PCDATA)>
+<!-- La cantidad de RAM es un texto (PCDATA) que indica la cantidad de memoria en MB. -->
+
+<!ELEMENT disco (#PCDATA)>
+<!-- El disco es un texto (PCDATA) que representa la ruta absoluta al archivo del disco duro virtual. -->
+
+<!ELEMENT adaptador-red (#PCDATA)>
+<!-- El adaptador de red es un texto (PCDATA), que indica el tipo de adaptador de red (NAT o puente). -->
+
+<!ATTLIST maquina-virtual id ID #REQUIRED>
+<!-- El atributo "id" es obligatorio (#REQUIRED) y se utiliza para dar un identificador único a cada máquina virtual. -->
+
+<!ATTLIST ram unidad CDATA #IMPLIED>
+<!-- El atributo "unidad" es opcional (#IMPLIED) y puede especificar la unidad de almacenamiento de la RAM (por ejemplo, "MB"). -->
+
+<!ATTLIST disco tipo CDATA #REQUIRED>
+<!-- El atributo "tipo" es obligatorio (#REQUIRED) y debe indicar si el disco es de tipo "vdi" o "vmdk". -->
+
+<!ATTLIST disco tamaño CDATA #REQUIRED>
+<!-- El atributo "tamaño" es obligatorio (#REQUIRED) y debe indicar el tamaño del disco en GB. -->
+
+<!ATTLIST adaptador-red tipo CDATA #REQUIRED>
+<!-- El atributo "tipo" es obligatorio (#REQUIRED) y debe indicar si el adaptador de red está en modo "NAT" o "adaptador puente". -->

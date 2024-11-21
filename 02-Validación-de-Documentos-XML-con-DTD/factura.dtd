@@ -1,0 +1,71 @@
+<!-- DTD para validar el documento factura.xml -->
+
+<!ELEMENT factura (fecha, numero, fecha_vencimiento, emisor, receptor, detalle, base_imponible, iva, irpf, total, comentarios)>
+
+<!-- El elemento "factura" debe contener los elementos: fecha, numero, fecha_vencimiento, emisor, receptor, detalle, base_imponible, iva, irpf, total y comentarios. Todos son obligatorios. -->
+
+<!ELEMENT fecha (#PCDATA)>
+<!-- La fecha es un texto (PCDATA), que representa la fecha de emisión de la factura en formato dd/mm/yyyy. -->
+
+<!ELEMENT numero (#PCDATA)>
+<!-- El número de la factura es un texto (PCDATA), que representa el identificador único de la factura. -->
+
+<!ELEMENT fecha_vencimiento (#PCDATA)>
+<!-- La fecha de vencimiento es un texto (PCDATA), que representa la fecha límite de pago de la factura en formato dd/mm/yyyy. -->
+
+<!ELEMENT emisor (nombre, direccion, nif, cp_ciudad, email)>
+<!-- El emisor debe contener los elementos: nombre, direccion, nif, cp_ciudad y email. Estos son obligatorios. -->
+
+<!ELEMENT nombre (#PCDATA)>
+<!-- El nombre del emisor es un texto (PCDATA), que representa el nombre de la empresa o persona emisora de la factura. -->
+
+<!ELEMENT direccion (#PCDATA)>
+<!-- La dirección del emisor es un texto (PCDATA), que describe la ubicación del emisor. -->
+
+<!ELEMENT nif (#PCDATA)>
+<!-- El NIF del emisor es un texto (PCDATA), que representa el número de identificación fiscal del emisor. -->
+
+<!ELEMENT cp_ciudad (#PCDATA)>
+<!-- El código postal y la ciudad del emisor es un texto (PCDATA), que contiene ambos datos separados por coma. -->
+
+<!ELEMENT email (#PCDATA)>
+<!-- El email del emisor es un texto (PCDATA), que representa la dirección de correo electrónico del emisor. -->
+
+<!ELEMENT receptor (nombre, direccion, nif, cp_ciudad, email)>
+<!-- El receptor debe contener los elementos: nombre, direccion, nif, cp_ciudad y email. Todos estos son obligatorios. -->
+
+<!ELEMENT detalle (producto+)>
+<!-- El detalle debe contener uno o más elementos "producto" (por eso usamos "+" para indicar "uno o más"). -->
+
+<!ELEMENT producto (descripcion, unidades, precio_unitario, precio)>
+<!-- El producto debe contener los elementos: descripcion, unidades, precio_unitario y precio. Todos son obligatorios. -->
+
+<!ELEMENT descripcion (#PCDATA)>
+<!-- La descripción del producto es un texto (PCDATA), que describe el producto o servicio. -->
+
+<!ELEMENT unidades (#PCDATA)>
+<!-- El número de unidades del producto es un texto (PCDATA), que representa la cantidad de unidades. -->
+
+<!ELEMENT precio_unitario (#PCDATA)>
+<!-- El precio unitario es un texto (PCDATA), que representa el precio de una unidad del producto o servicio. -->
+
+<!ELEMENT precio (#PCDATA)>
+<!-- El precio es un texto (PCDATA), que representa el precio total de los productos o servicios en el detalle. -->
+
+<!ELEMENT base_imponible (#PCDATA)>
+<!-- La base imponible es un texto (PCDATA), que representa el valor antes de aplicar el IVA. -->
+
+<!ELEMENT iva (#PCDATA)>
+<!-- El IVA es un texto (PCDATA), que representa el valor del impuesto al valor agregado. -->
+
+<!ELEMENT irpf (#PCDATA)>
+<!-- El IRPF es un texto (PCDATA), que representa el porcentaje de retención aplicado. -->
+
+<!ELEMENT total (#PCDATA)>
+<!-- El total es un texto (PCDATA), que representa la cantidad total a pagar después de aplicar IVA e IRPF. -->
+
+<!ELEMENT comentarios (#PCDATA)>
+<!-- Los comentarios son un texto (PCDATA), que representan información adicional sobre la factura. -->
+
+<!ATTLIST factura moneda CDATA #IMPLIED>
+<!-- El atributo "moneda" es opcional (#IMPLIED) y puede especificar la moneda en la que se expresa la factura (por ejemplo, "EUR" o "USD"). -->

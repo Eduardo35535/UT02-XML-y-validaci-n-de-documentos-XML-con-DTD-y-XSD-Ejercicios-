@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maquinas_virtuales>
+    <!--
+    El archivo contiene una lista de máquinas virtuales. Cada máquina virtual tiene un nombre, número de núcleos de CPU, cantidad de RAM, disco y adaptador de red.
+    El atributo "id" es único para cada máquina virtual. Los atributos "unidad" en RAM, "tipo" en disco y adaptador de red son necesarios para definir sus propiedades.
+    -->
+    <maquina id="1">
+        <nombre>Ubuntu-Server</nombre>
+        <cpu nucleos="4">CPU</cpu>
+        <ram cantidad="4096" unidad="MB">RAM</ram>
+        <disco ruta="/home/user/VirtualBox VMs/Ubuntu-Server/Ubuntu-Server.vdi" tipo="vdi" tamano="50" unidad="GB">Disco</disco>
+        <adaptador_red modo="NAT">
+            <reenvio_puertos>
+                <regla>
+                    <puerto_externo>8080</puerto_externo>
+                    <puerto_interno>80</puerto_interno>
+                    <protocolos>TCP</protocolos>
+                </regla>
+                <regla>
+                    <puerto_externo>2222</puerto_externo>
+                    <puerto_interno>22</puerto_interno>
+                    <protocolos>TCP</protocolos>
+                </regla>
+            </reenvio_puertos>
+        </adaptador_red>
+    </maquina>
+    
+    <maquina id="2">
+        <nombre>Windows-10</nombre>
+        <cpu nucleos="2">CPU</cpu>
+        <ram cantidad="8192" unidad="MB">RAM</ram>
+        <disco ruta="/home/user/VirtualBox VMs/Windows-10/Windows-10.vmdk" tipo="vmdk" tamano="100" unidad="GB">Disco</disco>
+        <adaptador_red modo="Adaptador puente"/>
+    </maquina>
+    
+    <maquina id="3">
+        <nombre>Debian-Desktop</nombre>
+        <cpu nucleos="2">CPU</cpu>
+        <ram cantidad="2048" unidad="MB">RAM</ram>
+        <disco ruta="/home/user/VirtualBox VMs/Debian-Desktop/Debian-Desktop.vdi" tipo="vdi" tamano="20" unidad="GB">Disco</disco>
+        <adaptador_red modo="NAT">
+            <reenvio_puertos>
+                <regla>
+                    <puerto_externo>8081</puerto_externo>
+                    <puerto_interno>80</puerto_interno>
+                    <protocolos>TCP</protocolos>
+                </regla>
+            </reenvio_puertos>
+        </adaptador_red>
+    </maquina>
+</maquinas_virtuales>

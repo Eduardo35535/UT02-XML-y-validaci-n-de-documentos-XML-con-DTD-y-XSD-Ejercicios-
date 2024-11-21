@@ -1,0 +1,23 @@
+<!-- DTD para validar el documento libreria.xml -->
+
+<!ELEMENT libreria (libro+)>
+
+<!-- La librería puede contener uno o más libros (por eso usamos "+" para indicar "uno o más") -->
+
+<!ELEMENT libro (titulo, autor, año, precio)>
+<!-- Un libro debe tener un título, autor, año y precio. Estos elementos son obligatorios. -->
+
+<!ELEMENT titulo (#PCDATA)>
+<!-- El título es un texto (PCDATA) que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT autor (#PCDATA)>
+<!-- El autor es un texto (PCDATA) que puede ser cualquier cadena de caracteres. -->
+
+<!ELEMENT año (#PCDATA)>
+<!-- El año es un texto (PCDATA), que puede ser un número o una cadena de caracteres. -->
+
+<!ELEMENT precio (#PCDATA)>
+<!-- El precio es un texto (PCDATA), que representa un número en formato decimal con puntos decimales. -->
+
+<!ATTLIST precio moneda (USD | EUR) #REQUIRED>
+<!-- El atributo "moneda" especifica la moneda del precio (USD o EUR) y es requerido para cada libro. -->

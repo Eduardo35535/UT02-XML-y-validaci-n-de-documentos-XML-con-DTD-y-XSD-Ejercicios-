@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura>
+    <!--
+    El archivo contiene una factura detallada. Cada factura tiene una fecha de emisión, número, fecha de vencimiento, y los detalles del emisor y receptor.
+    El detalle de la factura incluye una lista de productos o servicios, con su descripción, cantidad, precio unitario y total.
+    Los valores como base imponible, IVA, IRPF y total se calculan con base en los productos o servicios. 
+    El atributo "moneda" es opcional y puede especificar la moneda de la factura (por ejemplo, EUR).
+    -->
+    <encabezado>
+        <fecha_factura>17/04/2024</fecha_factura>
+        <numero_factura>2024-0001</numero_factura>
+        <fecha_vencimiento>17/05/2024</fecha_vencimiento>
+    </encabezado>
+
+    <declarante>
+        <nombre>Orlando Juan Lobán</nombre>
+        <direccion>Avenida Rosario 2, 1 A</direccion>
+        <nif>39000001A</nif>
+        <cp_ciudad>08001, Barcelona</cp_ciudad>
+        <email>info@orlandojuan.es</email>
+    </declarante>
+
+    <empresa>
+        <nombre>Empresa de logística, S. L.</nombre>
+        <direccion>Calle San Juan de la Luz, s/n</direccion>
+        <cif>B12345678</cif>
+        <cp_ciudad>28001, Madrid</cp_ciudad>
+        <email>info@empresalogisitasl.com</email>
+    </empresa>
+
+    <detalle>
+        <producto>
+            <nombre>Producto 1</nombre>
+            <unidades>2</unidades>
+            <precio_unitario>100</precio_unitario>
+            <precio_total>200,00</precio_total>
+        </producto>
+        <producto>
+            <nombre>Producto 2</nombre>
+            <unidades>4</unidades>
+            <precio_unitario>150</precio_unitario>
+            <precio_total>600,00</precio_total>
+        </producto>
+        <producto>
+            <nombre>Producto 3</nombre>
+            <unidades>7</unidades>
+            <precio_unitario>93</precio_unitario>
+            <precio_total>651,00</precio_total>
+        </producto>
+    </detalle>
+
+    <totales>
+        <base_imponible>1451,00</base_imponible>
+        <iva>304,71</iva>
+        <irpf>-217,65</irpf>
+        <total>1538,06</total>
+    </totales>
+
+    <comentarios>
+        <comentario>Pago por transferencia: ESXXXXXXXXXXXXXXXX9</comentario>
+    </comentarios>
+</factura>

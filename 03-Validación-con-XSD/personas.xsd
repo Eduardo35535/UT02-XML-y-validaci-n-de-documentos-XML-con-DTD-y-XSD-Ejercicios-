@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Definición de la estructura para el fichero personas.xml -->
+    
+    <!-- Persona debe ser un elemento con nombre, apellidos, dni, fecha_nacimiento y telefono -->
+    <xs:element name="personas">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Se puede tener entre 1 y 5 personas -->
+                <xs:element name="persona" maxOccurs="5" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" type="xs:string" maxLength="30"/>
+                            <xs:element name="apellidos" type="xs:string" maxLength="50"/>
+                            <xs:element name="dni" type="xs:string" pattern="\d{8}[A-Za-z]"/>
+                            <xs:element name="fecha_nacimiento" type="xs:date">
+                                <!-- Restricción de fechas entre 1900-01-01 y 2010-01-01 -->
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:date">
+                                        <xs:minInclusive value="1900-01-01"/>
+                                        <xs:maxInclusive value="2010-01-01"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="telefono" type="xs:string" minLength="9" maxLength="9"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
